@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LINE風アプリという名の何か</title>
+</head>
+<body>
+
+    <!-- コンテンツ表示画面 -->
+    <div>
+        <div>名前：<input type="text" id="uname"></div>
+        <div>
+            <textarea id="text" cols="30" rows="10"></textarea>
+            <button id="send">送信</button>
+            <button id="remove">消去</button>
+        </div>
+        <div id="output" style="overflow: auto;height: 100%;"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+        import { getDatabase, ref, push, set, onChildAdded, remove, onChildRemoved }
+            from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+        apiKey: "AIzaSyBKhfD1p-JvMw3t0csk_raOh5o17TIpX8Q",
+        authDomain: "gsdev0603-f2ad0.firebaseapp.com",
+        projectId: "gsdev0603-f2ad0",
+        storageBucket: "gsdev0603-f2ad0.appspot.com",
+        messagingSenderId: "77082842125",
+        appId: "1:77082842125:web:26b9b0b8232d4df4043144"
+};
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app); //RealtimeDBに接続
+        const dbRef = ref(db, "chat"); //RealtimeDB内の"chat"を使う
+
+        //データ登録(Click)
+        $("#send").on('click', function () {
+            const uname = $("#uname").val();
+            const text = $("#text").val();
+            // alert(name + text)
+        });
+
+        //データ登録(Enter)
+
+$("#send").on("click",function(){
+const msg = {
+uname: $("#uname").val(),
+text: $("#text").val()
+}
+const newPostRef = push(dbRef);
+set(newPostRef, msg);
+
+$("#uname").val("");
+$("#text").val("");
+
+});
+        
+
+        //最初にデータ取得＆onSnapshotでリアルタイムにデータを取得
+        onChildAdded(dbRef, function(data){
+            const msg  = data.val(); //オブジェクトデータの取得
+            const key  = data.key; //データのユニークキー
+            //表示用のテキスト
+            let h = '<p>';
+                h += msg.uname;
+                h += '<br>';
+                h += msg.text;
+                h += '</p>';
+            //ここで画面表示
+            $("#output").append(h); //#outputの最後に追加
+
+});
+
+// データ消去
+
+        $("#remove").on("click",function() {
+
+            console.log("消去ボタン押された")
+
+            $("#output").val("");
+
+});
+
+データの塊（オブジェクト）
+
+<!--  -->
+<script>
+
+//動作確認しました
+// alert("動作確認");
+
+const data = {
+name: "三浦",
+age: "40",
+height: "172",
+weight: "77"
+}
+
+console.log(data, "データの塊");
+
+// データの塊にアクセス
+
+console.log(data.name, "データの塊にアクセス")
+
+
+</script>
+<!--  -->
+
+    </script>
+</body>
+</html>
