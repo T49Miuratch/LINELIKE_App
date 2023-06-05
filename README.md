@@ -13,7 +13,7 @@ LINE風アプリという名のなにかを作るよ！
 
 <img src="mock/scaned1.jpg">
 <img src="mock/scaned2.jpg">
-<img src="mock/scaned.pdf">
+<a href="mock/scaned.pdf">pdfでもみられるぞ</a>
 
 ## ②工夫した点・こだわった点
 - 
