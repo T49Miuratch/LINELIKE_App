@@ -5,9 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LINE風アプリという名の何か</title>
+    <title>YESNOPILLOWONTHEWEB</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Dela+Gothic+One&family=DotGothic16&family=Kaisei+Decol:wght@700&family=RocknRoll+One&family=VT323&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">    
 </head>
 <body>
+
+    <main class="leftbackground">
+
+<div class="title">
+    YESNOPILLOWONTHEWEB
+</div>
+
+<div><img src="img/characters/ynp_crcts_-05.png" class="boy"></div>
+
+
+    <!-- ひっくり返る -->
+    <div class="quickFlip">
+        <div class="quickFlipPanel">
+            <p class="quickFlipCta"><img src="img/yes-pillow.png" alt="Yes Image" class="yes"></p>
+        </div>
+        
+        <div class="quickFlipPanel">
+            <p class="quickFlipCta"><img src="img/no-pillow.png" alt="No Image" class="no"></p>
+        </div>
+    </div>
 
     <!-- コンテンツ表示画面 -->
     <div>
@@ -20,7 +44,16 @@
         <div id="output" style="overflow: auto;height: 100%;"></div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <div>
+        <div>名前：<input type="text" id="uname"></div>
+        <div>
+            <textarea id="text" cols="30" rows="10"></textarea>
+            <button id="send">送信</button>
+            <button id="remove">消去</button>
+        </div>
+        <div id="output" style="overflow: auto;height: 100%;"></div>
+    </div>
+
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
@@ -105,6 +138,9 @@ console.log(data.name, "データの塊にアクセス")
 
 
 </script>
+
+<script src="js/yesnopillow.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </body>
 </html>
