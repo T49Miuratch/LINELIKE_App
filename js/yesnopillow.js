@@ -1,3 +1,18 @@
+$(function(){
+  $('.signinvalue').hide();
+
+  $('.signin').on('click',function(){
+    console.log("signinvalueがクリックされました");
+    $('.signinvalue').not($($(this).attr('href'))).hide();
+
+    // フェードイン・アウトのアニメーション付で、表示・非表示を交互に実行する
+    $($(this).attr('href')).fadeToggle(1000);
+
+    // show を使うと、表示するだけ （ 同じボタンを何回押しても変わらない ）
+    // $($(this).attr('href')).show();
+  });
+});
+
 // ここまでテスト
 
 $(document).ready(function() {
@@ -26,9 +41,10 @@ $(document).ready(function() {
     var currentImageA = imagesA[currentIndexA];
     var currentImageB = imagesB[currentIndexB];
     if (currentImageA === 'img/pillow/yes-pillow.png' && currentImageB === 'img/pillow/yes-pillow-pink.png') {
-      $('#message').show();
+      $('#output').show();
     } else {
-      $('#message').hide();
+      $('#output').hide();
     }
   }
+  
 });

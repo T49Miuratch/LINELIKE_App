@@ -29,6 +29,8 @@ const firebaseConfig = {
   appId: "1:1005052688361:web:cf21f3ddf54cb4416c7d78"
 };
 
+
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app); //RealtimeDBに接続
@@ -114,23 +116,48 @@ $("#remove").on("click",function() {
         </td>
 
         </tr>
+
+
+        <tr>
+            <td><div class="comment">
+                message:<br>
+                <textarea id="uname" cols="23" rows="2"></textarea><br>
+                <button id="send">send</button>
+            
+            </div></td>
+    
+            <td><div class="comment">
+                message:<br>
+                <textarea id="text" cols="23" rows="2"></textarea><br>
+                <button id="send">send</button>
+            </div></td>
+    
+            </tr>
+
 </table>
 
-<p id="message" style="display: none;">MATCH!</p>
+<p id="message" style="display: none;">MATCH!
+
+    <div id="output" style="display: none;"></div></textarea>
+
+</p>
 
 
 <!-- テスト -->
 
     <!-- コンテンツ表示画面 -->
-    <div>
+    <!-- <div>
+
         <div>名前：<input type="text" id="uname"></div>
         <div>
             <textarea id="text" cols="30" rows="10"></textarea>
             <button id="send">送信</button>
             <button id="remove">消去</button>
         </div>
-        <div id="output" style="overflow: auto;height: 100%;"></div>
-    </div>
+        <div id="output" style="overflow: auto;height: 20px;"></div>
+    </div> -->
+
+    </main>
 
 <!-- テスト -->
 

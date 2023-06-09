@@ -5,8 +5,7 @@
   box-sizing : border-box;
   align-items: center;
   vertical-align: middle;
-
-  cursor: url(img/key.cur), default;
+  cursor: pointer;
 
 }
 
@@ -25,7 +24,7 @@ body{
 
 #login-area{
 
-  cursor: url(img/key.cur), default;
+  cursor: pointer;
 
 }
 
@@ -35,14 +34,88 @@ body{
     padding-bottom: 30px;
     text-align: center;
     font-family: 'PixelMplus10-Regular';
-    font-size: 70px;
+    font-size: 8vh;
     color: #ff5a8f;
 }
 
 .boy,
 .girl,
 .key{
-    height: 250px;
+    height: 20vh;
+}
+
+#pillow{
+
+  width: 20vh;
+  text-align: center;
+
+}
+
+.uemail,
+.password{
+
+  font-family: 'PixelMplus10-Regular';
+  font-size: 20px;
+  color: crimson;
+  padding-right: 0;
+  margin-right: 10px;
+  text-align: right;
+
+}
+
+.login,
+#send{
+
+  font-family: 'PixelMplus10-Regular';
+  font-size: 15px;
+  color: crimson;
+  padding: 10px;
+  margin: 10px;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+
+}
+
+.signin{
+
+  font-family: 'PixelMplus10-Regular';
+  font-size: 10px;
+  background-color: #454545;
+  color: #eeeeee;
+  padding: 5px;
+  margin: 5px;
+  font-weight: 700;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  border-radius: 0.5rem;
+
 }
 
 table{
@@ -50,7 +123,7 @@ table{
 text-align: center;
 margin: auto;
 padding-left: 0px;
-width: 80%;
+width: auto;
 height: 80%;
 border-collapse: separate;
 border-spacing: 20px 20px;
@@ -59,14 +132,8 @@ border-spacing: 20px 20px;
 vertical-align: middle;
 }
 
-#pillow{
-
-    width: 250px;
-    text-align: center;
-
-}
-
-#message{
+#message,
+#output{
 
   margin: auto;
   padding-top: 30px;
@@ -75,6 +142,18 @@ vertical-align: middle;
   font-family: 'PixelMplus10-Regular';
   font-size: 70px;
   color: #ff5a8f;
+
+}
+
+
+.comment{
+
+  font-family: 'PixelMplus10-Regular';
+  font-size: 20px;
+  color: crimson;
+  padding-right: 0;
+  margin-right: 10px;
+  text-align: center;
 
 }
 
