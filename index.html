@@ -19,17 +19,18 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
 import { getDatabase, ref, push, set, onChildAdded, remove, onChildRemoved }
 from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
 
-    
+  apiKey: "AIzaSyBGo",
+  authDomain: "yesnpp.com",
+  projectId: "ye888",
+  storageBucket: "yescom",
+  messagingSenderId: "100561",
+  appId: "1:1005057d78"
 
-
-
-    
 };
-
-
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -38,8 +39,8 @@ const dbRef = ref(db, "chat"); //RealtimeDB内の"chat"を使う
 
 //データ登録(Click)
 $("#send").on('click', function () {
-    const uname = $("#uname").val();
-    const text = $("#text").val();
+    const bvoice = $("#boyvoice").val();
+    const gvoice = $("#girlvoice").val();
     // alert(name + text)
 });
 
@@ -47,14 +48,14 @@ $("#send").on('click', function () {
 
 $("#send").on("click",function(){
 const msg = {
-uname: $("#uname").val(),
-text: $("#text").val()
+bvoice: $("#boyvoice").val(),
+gvoice: $("#girlvoice").val()
 }
 const newPostRef = push(dbRef);
 set(newPostRef, msg);
 
-$("#uname").val("");
-$("#text").val("");
+$("#boyvoice").val("");
+$("#girlvoice").val("");
 
 });
 
@@ -64,11 +65,10 @@ onChildAdded(dbRef, function(data){
     const msg  = data.val(); //オブジェクトデータの取得
     const key  = data.key; //データのユニークキー
     //表示用のテキスト
-    let h = '<p>';
-        h += msg.uname;
+    let h = '<img src="img/comments/ynp_crcts_-08.png">'+msg.bvoice;
         h += '<br>';
-        h += msg.text;
-        h += '</p>';
+        h += msg.gvoice+'<img src="img/comments/ynp_crcts_-11.png">';
+        h += '<br>';
     //ここで画面表示
     $("#output").append(h); //#outputの最後に追加
 
@@ -121,18 +121,19 @@ $("#remove").on("click",function() {
         <tr>
             <td><div class="comment">
                 message:<br>
-                <textarea id="uname" cols="23" rows="2"></textarea><br>
-                <button id="send">send</button>
+                <textarea id="boyvoice" cols="23" rows="2"></textarea>
             
             </div></td>
     
             <td><div class="comment">
                 message:<br>
-                <textarea id="text" cols="23" rows="2"></textarea><br>
-                <button id="send">send</button>
+                <textarea id="girlvoice" cols="23" rows="2"></textarea>
             </div></td>
     
             </tr>
+
+            <tr><td colspan="2">
+                <button id="send">send</button></td></tr>
 
 </table>
 
